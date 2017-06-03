@@ -6,44 +6,83 @@ package org.coach.tdd.template;
 public class Map {
     private Cell[][] map;
     private int dimensionNum;
+    private int[][] status;
+    private int dx[] = {-1, -1, -1, 0, 1, 1, 1, 0};
+    private int dy[] = {-1, 0, 1, 1, 1, 0, -1, -1};
 
     public Map(int n) {
         dimensionNum = n;
         map = new Cell[dimensionNum][];
+        status = new int[n][n];
         for (int i = 0; i < n; i++) {
             map[i] = new Cell[dimensionNum];
         }
         for (int i = 0; i < dimensionNum; i++) {
             for (int j = 0; j < dimensionNum; j++) {
-                map[i][j] = new Cell(i, j, dimensionNum, false, map);
-
+                map[i][j] = new Cell(i, j, map);
+                status[i][j] = 0;
             }
         }
     }
 
-    public void setAliveCell(int rowIdx, int columnIdx) {
-        map[rowIdx][columnIdx].setAlive(true);
-    }
-
-    public void update() {
+    public void Update() {
         for (int i = 0; i < dimensionNum; i++) {
             for (int j = 0; j < dimensionNum; j++) {
-                map[i][j].update();
+                int cnt = 0;
+                for (int k = 0; k < 8; k++) {
+                    int x = i + dx[k];
+                    int y = j + dy[k];
+                    if (x >= 0 && x < dimensionNum && y >= 0 && y < dimensionNum && (status[x][y] == 1 || status[x][y] == 2)) {
+                        ++cnt;
+                    }
+                }
+                if (status[i][j] != 0 && (cnt < 2 || cnt > 3)) status[i][j] = 2;
+                else if (status[i][j] == 0 && cnt == 3) status[i][j] = 3;
             }
         }
+        for (int i = 0; i < dimensionNum; ++i) {
+            for (int j = 0; j < dimensionNum; ++j) {
+                status[i][j] %= 2;
+                if (status[i][j] == 0) {
+                    map[i][j].setAlive(false);
+                } else {
+                    map[i][j].setAlive(true);
+                }
+            }
+        }
+
     }
 
-    public void display() {
+    public String Display() {
+        String print = "";
         for (int i = 0; i < dimensionNum; i++) {
             for (int j = 0; j < dimensionNum; j++) {
                 if (map[i][j].isAlive()) {
-                    System.out.print('*');
+                    print += "*";
                 } else {
-                    System.out.print('.');
+                    print += ".";
                 }
             }
-            System.out.println();
+            print += "\n";
         }
-        System.out.println();
+        print += "\n";
+        return print;
+    }
+
+    public boolean getAliveCell(int i, int j) {
+        return map[i][j].isAlive();
+    }
+
+    public int getDimensionNum() {
+        return dimensionNum;
+    }
+
+    public void setCellAlive(int rowIdx, int columnIdx, boolean isAlive) {
+        if (isAlive) {
+            status[rowIdx][columnIdx] = 1;
+        } else {
+            status[rowIdx][columnIdx] = 0;
+        }
+        map[rowIdx][columnIdx].setAlive(isAlive);
     }
 }

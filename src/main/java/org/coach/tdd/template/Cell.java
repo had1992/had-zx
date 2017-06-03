@@ -10,10 +10,10 @@ public class Cell {
     private Cell[][] mat;
     private CountAliveCell countMethod;
 
-    public Cell(int a, int b, int N, boolean isA, Cell[][] m) {
+    public Cell(int a, int b, Cell[][] m) {
         rowIdx = a;
         columnIdx = b;
-        isAlive = isA;
+        isAlive = false;
         mat = m;
 
         countMethod = new CountAliveCell(a, b, m);

@@ -2,18 +2,17 @@ package org.coach.tdd.template;
 
 public class Main {
     public static void main(String[] args) {
-        Map map = new Map(10);
-        map.setAliveCell(0, 2);
-        map.setAliveCell(2, 2);
-        map.setAliveCell(1, 3);
-        map.setAliveCell(1, 1);
-        map.setAliveCell(1, 4);
+        Map map = new Map(50);
+        map.setCellAlive(25, 24,true);
+        map.setCellAlive(25, 25,true);
+        map.setCellAlive(25, 26,true);
+        map.setCellAlive(26, 25,true);
 
-        map.display();
+        System.out.println(map.Display());
 
-        for (int i = 0; i < 10; i++) {
-            map.update();
-            map.display();
+        for (int i = 0; i < 100; i++) {
+            map.Update();
+            System.out.println(map.Display());
         }
     }
 }
