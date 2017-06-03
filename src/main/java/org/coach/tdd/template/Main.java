@@ -1,18 +1,40 @@
 package org.coach.tdd.template;
 
+import java.util.Scanner;
+import java.lang.Thread;
+import java.lang.Runtime;
+
 public class Main {
     public static void main(String[] args) {
-        Map map = new Map(50);
-        map.setCellAlive(25, 24, true);
-        map.setCellAlive(25, 25, true);
-        map.setCellAlive(25, 26, true);
-        map.setCellAlive(26, 25, true);
+        Scanner In = new Scanner(System.in);
+        int mapSize = 0;
+        System.out.println("请输入地图大小：");
+        mapSize = In.nextInt();
+
+
+        Map map = new Map(mapSize);
+        map.setCellAlive(mapSize / 2, mapSize / 2 - 1, true);
+        map.setCellAlive(mapSize / 2, mapSize / 2, true);
+        map.setCellAlive(mapSize / 2, mapSize / 2 + 1, true);
+        map.setCellAlive(mapSize / 2 + 1, mapSize / 2, true);
 
         System.out.println(map.display());
 
-        for (int i = 0; i < 100; i++) {
+        Thread thread = Thread.currentThread();
+
+        while (true) {
             map.update();
             System.out.println(map.display());
+            try {
+                thread.sleep(200);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            try {
+                Runtime.getRuntime().exec("clear");
+            } catch (Throwable e) {
+                e.printStackTrace();
+            }
         }
     }
 }
