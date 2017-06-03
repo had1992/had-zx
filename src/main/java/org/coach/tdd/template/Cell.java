@@ -40,7 +40,7 @@ public class Cell {
     }
 
     private int ensureStatu(int oldStatu, int count) {
-        int statu = 0;
+        int statu = oldStatu;
         if (oldStatu != 0 && (count < 2 || count > 3)) {
             statu = 2;
         } else if (oldStatu == 0 && count == 3) {

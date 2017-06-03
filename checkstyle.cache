@@ -1,21 +1,21 @@
-#Sat Jun 03 17:00:24 CST 2017
+#Sat Jun 03 17:25:32 CST 2017
 /Users/had/Desktop/thoughtWork/src/main/java/org/coach/tdd/template/CountAliveCellAtUpEdge.java=1496469236000
 /Users/had/Desktop/thoughtWork/src/main/java/org/coach/tdd/template/CountAliveCellAtDownEdge.java=1496470359000
 /Users/had/Desktop/tdd-kata-java/src/test/java/org/coach/tdd/template/LibraryTest.java=1496393692000
 /Users/had/Desktop/thoughtWork/src/main/java/org/coach/tdd/template/CountAliveCellAtLeftDownCorner.java=1496470039000
-/Users/had/Desktop/thoughtWork/src/main/java/org/coach/tdd/template/Map.java=1496478774000
-/Users/had/Desktop/thoughtWork/src/main/java/org/coach/tdd/template/Main.java=1496478774000
-/Users/had/Desktop/thoughtWork/src/test/java/org/coach/tdd/template/TestMap.java=1496480395000
+/Users/had/Desktop/thoughtWork/src/main/java/org/coach/tdd/template/Map.java=1496481521000
+/Users/had/Desktop/thoughtWork/src/main/java/org/coach/tdd/template/Main.java=1496481246000
+/Users/had/Desktop/thoughtWork/src/test/java/org/coach/tdd/template/TestMap.java=1496481917000
 /Users/had/Desktop/thoughtWork/src/main/java/org/coach/tdd/template/CountAliveCellAtLeftUpCorner.java=1496470039000
 /Users/had/Desktop/thoughtWork/src/main/java/org/coach/tdd/template/CountAliveCellInMid.java=1496468655000
 /Users/had/Desktop/thoughtWork/src/main/java/org/coach/tdd/template/CountAliveCell.java=1496471854000
 /Users/had/Desktop/thoughtWork/src/test/java/org/coach/tdd/template/LibraryTest.java=1496472049000
 /Users/had/Desktop/thoughtWork/src/main/java/org/coach/tdd/template/CountAliveCellAtRightDownCorner.java=1496470039000
 /Users/had/Desktop/thoughtWork/src/main/java/org/coach/tdd/template/Library.java=1496466197000
-/Users/had/Desktop/thoughtWork/src/main/java/org/coach/tdd/template/Cell.java=1496480395000
+/Users/had/Desktop/thoughtWork/src/main/java/org/coach/tdd/template/Cell.java=1496481421000
 /Users/had/Desktop/thoughtWork/src/main/java/org/coach/tdd/template/CountAliveCellAtRightEdge.java=1496469236000
 /Users/had/Desktop/thoughtWork/src/main/java/org/coach/tdd/template/CountAliveCellAtLeftEdge.java=1496470039000
-/Users/had/Desktop/thoughtWork/src/test/java/org/coach/tdd/template/TestCell.java=1496480418000
+/Users/had/Desktop/thoughtWork/src/test/java/org/coach/tdd/template/TestCell.java=1496481928000
 configuration*?=8DC4B29CF287C68DB2291DBB8CD0F61CE6126CED
 /Users/had/Desktop/tdd-kata-java/src/main/java/org/coach/tdd/template/Library.java=1496393692000
 /Users/had/Desktop/thoughtWork/src/main/java/org/coach/tdd/template/CountAliveCellAtRightUpCorner.java=1496469236000

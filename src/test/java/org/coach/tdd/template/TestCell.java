@@ -9,6 +9,14 @@ import org.junit.Test;
  */
 public class TestCell {
     @Test
+    public void testSetAlive() {
+        Cell[][] m = new Cell[1][1];
+        Cell cell = new Cell(0, 0, m);
+        cell.setAlive(true);
+        assertTrue("error", cell.getAlive());
+    }
+
+    @Test
     public void testGetStatus() {
         Cell[][] m = new Cell[1][1];
         Cell cell = new Cell(0, 0, m);
@@ -23,6 +31,18 @@ public class TestCell {
 
         cell.setAlive(true);
         assertTrue("error", cell.getAlive());
+    }
+
+    @Test
+    public void testUpdate() {
+        Map map = new Map(4);
+        map.setCellAlive(1, 1, true);
+        map.setCellAlive(1, 2, true);
+        map.setCellAlive(2, 1, true);
+        map.setCellAlive(2, 2, true);
+
+        int testStatu = map.getCell(1, 1).update();
+        assertTrue("error", testStatu == 1);
     }
 
 

@@ -9,6 +9,18 @@ import org.junit.Test;
  */
 public class TestMap {
     @Test
+    public void testGetCell() {
+        Map map = new Map(4);
+        map.setCellAlive(1, 1, true);
+        map.setCellAlive(1, 2, true);
+        map.setCellAlive(2, 1, true);
+        map.setCellAlive(2, 2, true);
+
+        assertTrue("error", map.getCell(1, 1).getAlive());
+        assertTrue("error", !map.getCell(0, 0).getAlive());
+    }
+
+    @Test
     public void testGetDimensionNum() {
         Map map = new Map(3);
         assertTrue("error", map.getDimensionNum() == 3);
@@ -45,6 +57,19 @@ public class TestMap {
         map.setCellAlive(1, 2, true);
         map.setCellAlive(2, 1, true);
         map.setCellAlive(2, 2, true);
+
+        assertTrue("error", map.display().equals("....\n.**.\n.**.\n....\n\n"));
+    }
+
+    @Test
+    public void testUpdate() {
+        Map map = new Map(4);
+        map.setCellAlive(1, 1, true);
+        map.setCellAlive(1, 2, true);
+        map.setCellAlive(2, 1, true);
+        map.setCellAlive(2, 2, true);
+
+        map.update();
 
         assertTrue("error", map.display().equals("....\n.**.\n.**.\n....\n\n"));
     }

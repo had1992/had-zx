@@ -60,4 +60,8 @@ public class Map {
     public void setCellAlive(int rowIdx, int columnIdx, boolean isAlive) {
         map[rowIdx][columnIdx].setAlive(isAlive);
     }
+
+    public Cell getCell(int i, int j) {
+        return map[i][j];
+    }
 }
