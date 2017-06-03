@@ -7,27 +7,27 @@ import org.junit.Test;
 /**
  * Created by had on 2017/6/3.
  */
-public class testMap {
+public class TestMap {
     @Test
-    public void testGetDimensionNum(){
+    public void testGetDimensionNum() {
         Map map = new Map(3);
-        assertTrue("error",map.getDimensionNum() == 3);
+        assertTrue("error", map.getDimensionNum() == 3);
     }
 
     @Test
-    public void testGetAliveCell(){
+    public void testGetAliveCell() {
         Map map = new Map(3);
-        for (int i = 0; i < 3; i++){
-            for (int j = 0; j < 3; j++){
-                assertTrue("error",!map.getAliveCell(i,j));
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                assertTrue("error", !map.getAliveCell(i, j));
             }
         }
     }
 
     @Test
-    public void testSetAliveCell() {
+    public void testSetCellAlive() {
         Map map = new Map(3);
-        map.getAndSetCell(0, 0).setAlive(true);
+        map.setCellAlive(0, 0, true);
         assertTrue("setAliveCell is not correct", map.getAliveCell(0, 0));
         for (int i = 0; i < map.getDimensionNum(); i++) {
             for (int j = 0; j < map.getDimensionNum(); j++) {
@@ -39,9 +39,13 @@ public class testMap {
     }
 
     @Test
-    public void testDisplay(){
+    public void testDisplay() {
         Map map = new Map(4);
+        map.setCellAlive(1, 1, true);
+        map.setCellAlive(1, 2, true);
+        map.setCellAlive(2, 1, true);
+        map.setCellAlive(2, 2, true);
 
+        assertTrue("error", map.display().equals("....\n.**.\n.**.\n....\n\n"));
     }
-
 }
