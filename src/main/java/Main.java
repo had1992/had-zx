@@ -5,10 +5,14 @@ import org.coach.tdd.template.*;
 
 public class Main {
     public static void main(String[] args){
-        Library library = new Library();
+        Map map = new Map(10);
+        map.setAliveCell(1,1);
+        map.setAliveCell(1,2);
+        map.setAliveCell(2,3);
 
-        if(library.someLibraryMethod()){
-            System.out.println("hello Java");
+        for (int i = 0; i < 10; i++){
+            map.update();
+            map.display();
         }
     }
 }

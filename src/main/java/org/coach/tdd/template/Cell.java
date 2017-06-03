@@ -4,10 +4,56 @@ package org.coach.tdd.template;
  * Created by had on 2017/6/3.
  */
 public class Cell {
-    public Cell(int a, int b, Cell[][] m) {
+    public Cell(int a, int b, int N, boolean isA, Cell[][] m) {
         rowIdx = a;
         columnIdx = b;
+        isAlive = isA;
         mat = m;
+        if(a==0&&b==0){
+            isAtCorner =true;
+            isAtEdge = false;
+            location = 0;
+        }
+        if(a==0&&b==N-1){
+            isAtCorner =true;
+            isAtEdge = false;
+            location = 2;
+        }
+        if(a==N-1&&b==0){
+            isAtCorner =true;
+            isAtEdge = false;
+            location = 1;
+        }
+        if(a==N-1&&b==N-1){
+            isAtCorner =true;
+            isAtEdge = false;
+            location = 3;
+        }
+        if(a==0&&b!=N-1&&b!=0){
+            isAtCorner =false;
+            isAtEdge = true;
+            location = 2;
+        }
+        if(b==0 && a!=N-1&&a!=0){
+            isAtCorner =false;
+            isAtEdge = true;
+            location = 0;
+        }
+        if(a==N-1&&b!=N-1&&b!=0){
+            isAtCorner =false;
+            isAtEdge = true;
+            location = 3;
+        }
+        if(b==N-1&&a!=N-1&&a!=0){
+            isAtCorner =true;
+            isAtEdge = false;
+            location = 1;
+        }
+
+        isAtCorner =false;
+        isAtEdge = false;
+        location = 4;
+
     }
 
     public void update(){
@@ -174,6 +220,10 @@ public class Cell {
 
     public boolean isAlive() {
         return isAlive;
+    }
+
+    public void setAlive(boolean alive) {
+        isAlive = alive;
     }
 
     public boolean isAtCorner() {
