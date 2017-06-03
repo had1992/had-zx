@@ -73,4 +73,5 @@ public class TestMap {
 
         assertTrue("error", map.display().equals("....\n.**.\n.**.\n....\n\n"));
     }
+
 }

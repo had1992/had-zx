@@ -14,6 +14,9 @@ public class TestCell {
         Cell cell = new Cell(0, 0, m);
         cell.setAlive(true);
         assertTrue("error", cell.getAlive());
+
+        cell.setAlive(false);
+        assertTrue("error", !cell.getAlive());
     }
 
     @Test
@@ -43,7 +46,29 @@ public class TestCell {
 
         int testStatu = map.getCell(1, 1).update();
         assertTrue("error", testStatu == 1);
+
+        testStatu = map.getCell(0, 0).update();
+        assertTrue("error", testStatu == 0);
     }
 
+    @Test
+    public void testUpdate1() {
+        Map map = new Map(4);
+        map.setCellAlive(1, 1, true);
+
+        int testStatu = map.getCell(1, 1).update();
+        assertTrue("error", testStatu == 2);
+    }
+
+    @Test
+    public void testUpdate2() {
+        Map map = new Map(4);
+        map.setCellAlive(1, 1, true);
+        map.setCellAlive(1, 0, true);
+        map.setCellAlive(0, 1, true);
+
+        int testStatu = map.getCell(0, 0).update();
+        assertTrue("error", testStatu == 3);
+    }
 
 }
