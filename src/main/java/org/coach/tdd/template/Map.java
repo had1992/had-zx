@@ -34,13 +34,14 @@ public class Map {
         for (int i = 0; i < N; i++){
             for (int j = 0; j < N; j++){
                 if(map[i][j].isAlive()){
-                    System.out.print("*");
+                    System.out.print('*');
                 } else {
-                    System.out.print(" ");
+                    System.out.print('.');
                 }
             }
             System.out.println();
         }
+        System.out.println();
     }
 
     private Cell map[][];

@@ -9,6 +9,9 @@ public class Cell {
         columnIdx = b;
         isAlive = isA;
         mat = m;
+        isAtCorner =false;
+        isAtEdge = false;
+        location = 4;
         if(a==0&&b==0){
             isAtCorner =true;
             isAtEdge = false;
@@ -45,14 +48,12 @@ public class Cell {
             location = 3;
         }
         if(b==N-1&&a!=N-1&&a!=0){
-            isAtCorner =true;
-            isAtEdge = false;
+            isAtCorner = false;
+            isAtEdge = true;
             location = 1;
         }
 
-        isAtCorner =false;
-        isAtEdge = false;
-        location = 4;
+
 
     }
 
@@ -143,7 +144,7 @@ public class Cell {
     private int countAliveNumAtUpEdge(){
         int countAlive = 0;
         for (int i = 0; i < 2; i++){
-            int tempRowIdx = rowIdx-i;
+            int tempRowIdx = rowIdx+i;
             if(mat[tempRowIdx][columnIdx-1].isAlive()) countAlive++;
             if(mat[tempRowIdx][columnIdx+1].isAlive()) countAlive++;
         }
@@ -154,7 +155,7 @@ public class Cell {
     private int countAliveNumAtDownEdge(){
         int countAlive = 0;
         for (int i = 0; i < 2; i++){
-            int tempRowIdx = rowIdx+i;
+            int tempRowIdx = rowIdx-i;
             if(mat[tempRowIdx][columnIdx-1].isAlive()) countAlive++;
             if(mat[tempRowIdx][columnIdx+1].isAlive()) countAlive++;
         }
