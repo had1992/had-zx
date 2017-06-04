@@ -1,15 +1,13 @@
 package org.coach.tdd.template;
 
 import java.util.Scanner;
-import java.lang.Thread;
-import java.lang.Runtime;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner In = new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
         int mapSize = 0;
         System.out.println("请输入地图大小：");
-        mapSize = In.nextInt();
+        mapSize = input.nextInt();
 
 
         Map map = new Map(mapSize);
@@ -25,16 +23,6 @@ public class Main {
         while (true) {
             map.update();
             System.out.println(map.display());
-            try {
-                thread.sleep(200);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            try {
-                Runtime.getRuntime().exec("clear");
-            } catch (Throwable e) {
-                e.printStackTrace();
-            }
         }
     }
 }
